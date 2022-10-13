@@ -13,7 +13,7 @@ import com.tienda.domain.Cliente;
 public class IndexController {
     
     @Autowired
-    private ClienteDao clienteDao;
+    private ClienteService clienteService;
     
     @GetMapping("/")
     public String inicio(Model model) {
@@ -28,7 +28,7 @@ public class IndexController {
 
         var clientes = Arrays.asList(cliente1,cliente2,cliente3);*/
         
-        var clientes = clienteDao.findAll();
+        var clientes = clienteService.getClientes();
         
         model.addAttribute("clientes",clientes);
         
