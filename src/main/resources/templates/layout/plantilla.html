@@ -8,11 +8,24 @@
         
     </head>  
     <body>
-        <header th:frafment="header">
-            <<h1>TechShop</h1>
+        <header th:frafment="header" class="header">
+            <nav class="nav">
+                <a th:href="@{/}" class="nav-link logo">TechShop</a>
+                <ul class="nav-menu">
+                    <li class="nav-menu-item">
+                        <a class="nav-link nav-menu-link" th:href="@{/cliente/listado}">Clientes</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a class="nav-link nav-menu-link" th:href="@{/articulo/listado}">Articulos</a>
+                    </li>
+                    <li class="nav-menu-item">
+                        <a class="nav-link nav-menu-link" th:href="@{/categoria/listado}">Categorias</a>
+                    </li>
+                    
+                </ul>  
+            </nav>
         </header>
-        
-        <footer th:fragment="footer">
-            <p style="text-align: center">&COPY;
+        <footer th:fragment="footer" class="footer">
+            <p>&COPY; Derechos Resservados 2022</p>
     </body>
 </html>

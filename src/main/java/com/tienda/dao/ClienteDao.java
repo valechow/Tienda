@@ -1,5 +1,5 @@
 
-package dao;
+package com.tienda.dao;
 
 
 import com.tienda.domain.Cliente;
