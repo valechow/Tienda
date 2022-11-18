@@ -10,31 +10,32 @@
     <body>
         <header th:replace="layout/plantilla::header" class="header"/>
         <div class="contenido">
-        <h2>Nuestros Articulos</h2>
+            <h2>[[#{articulo.titulo}]]</h2>
         
-        <div th:if="{articulos !=null and !articulos.empty}">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="articulo : ${articulos}">
-                    <td>[[${articulo.descripcion}]]</td>
-                    <td style="text-align: left">[[${#numbers.formatDecimal(articulo.precio,3,2)}]]</td>
-                    
-                    <td><a th:href="@{/carrito/agregar/}+ ${articulo.idArticulo}">Comprar</td>
-                </tr>
-            </tbody>
-        </table>
+            <div th:if="{articulos !=null and !articulos.empty}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>[[#{articulo.descripcion}]]</th>
+                        <th>[[#{articulo.precio}]]</th>
+                        <th>[[#{articulo.comprar}]]</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="articulo : ${articulos}">
+                        <td>[[${articulo.descripcion}]]</td>
+                        <td style="text-align: left">[[${#numbers.formatDecimal(articulo.precio,3,2)}]]</td>
+
+                        <td><a th:href="@{/carrito/agregar/}+ ${articulo.idArticulo}">Comprar</td>
+                    </tr>
+                </tbody>
+            </table>
         
             
-        </div>    
+            </div>    
         <div th:if="{articulos ==null or articulos.empty}">
-            <h2>No ses tienen articulos que mostrar!</h2>
+            <h2><th>[[#{articulo.no_mostrar}]]</th></h2>
         </div>
     </div>
         <footer th:replace="layout/plantilla :: footer" class="footer"/>

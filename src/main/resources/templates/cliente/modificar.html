@@ -2,40 +2,49 @@
 <html
     xmlns:th="http:www.thymeleaf.org"
     xmlns="http:www.w3.org/1999/xhtml">
-    <head>
+    <head th:replace="layout/plantilla :: head">
         <title>TechShop</title>
         <meta charset="UTF-8">
+            <link href="/css/menu.css" rel="stylecheet" type="text/css"/>
         
     </head>
     <body>
-        <h1>Datos de Cliente</h1>
-        <a th:href="@{/}">Regresar</a>
-        
-        <hr/>
-        <form th:action="@{/cliente/guardar}"
-            method="post"
-            th:object="${cliente}">
-            
-            
-            <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
-            <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" th:field="*{nombre}"/>
-            <br/>
-            
-            <label for="apellidos">Apellidos</label>
-            <input type="text" name="apellidos" th:field="*{apellidos}"/>
-            <br/>
-            
-            <label for="correo">Correo</label>
-            <input type="email" name="correo" th:field="*{correo}"/>
-            <br/>
-            
-            <label for="telefono">Telefono</label>
-            <input type="tel" name="telefono" th:field="*{telefono}"/>
-            <br/>
-            
-            <input type="submit" name="guardar" value="Guardar"/>
-        </form>
+        <header th:replace="layout/plantilla :: header"/>
+        <div class="contenido">
+            <h2>[[#{cliente.datos}]]</h2>
+            <a th:href="@{/}">[[#{accion.regresar}]]</a>
+
+            <hr/>
+            <form th:action="@{/cliente/guardar}"
+                method="post"
+                th:object="${cliente}">
+
+
+                <input type="hidden" name="idCliente" th:field="*{idCliente}"/>
+                <label for="nombre">[[#{cliente.nombre}]]</label>
+                <input type="text" name="nombre" th:field="*{nombre}"/>
+                <br/>
+
+                <label for="apellidos">[[#{cliente.apellidos}]]</label>
+                <input type="text" name="apellidos" th:field="*{apellidos}"/>
+                <br/>
+
+                <label for="correo">[[#{cliente.correo}]]</label>
+                <input type="email" name="correo" th:field="*{correo}"/>
+                <br/>
+
+                <label for="telefono">[[#{cliente.telefono}]]</label>
+                <input type="tel" name="telefono" th:field="*{telefono}"/>
+                <br/>
+                
+                <label for="limite">[[#{cliente.limite}]]</label>
+                <input type="number" name="limite" th:field="*{credito.limite}"/>
+                <br/>
+
+                <input type="submit" name="guardar" value="Guardar"/>
+            </form>
+        </div>
+        <footer th:replace="layout/planilla :: footer"/>
         
     </body>
 </html>
