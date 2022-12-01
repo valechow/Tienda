@@ -90,6 +90,11 @@
                  <artifactId>thymeleaf-extras-springsecurity5</artifactId>
                 </dependency>
                 
+                <dependency>
+                 <groupId>javax.validation</groupId>
+                 <artifactId>validation-api</artifactId>
+                </dependency>
+                
 	</dependencies>
 
 	<build>
